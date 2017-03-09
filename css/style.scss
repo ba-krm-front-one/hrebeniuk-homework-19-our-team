@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500');
+@import url('https://fonts.googleapis.com/css?family=Roboto:900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700');
+
+$decor-color: #ffcc00;
+$text-color: #333333;
+$font-family-text: Raleway, sans-serif;
+$font-family-title: Roboto, sans-serif;
+$border-yellow: 1px solid $decor-color;
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+body {
+  font-family: $font-family-text;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header-container {
+  margin: 112px auto 40px;
+  position: relative;
+  max-width: 450px;
+  &:before,
+  &:after {
+    display: block;
+    content: " ";
+    position: absolute;
+    bottom: 12px;
+    height: 1px;
+    width: 47%;
+    background-color: $decor-color;
+  }
+  &:before {
+    left: 0;
+  }
+  &:after {
+    right: 0;
+  }
+  &__subtitle {
+    font-size: 18px;
+    color: ($text-color/0.36);
+    word-spacing: 2px;
+  }
+  &__title {
+    font-family: $font-family-title;
+    font-size: 60px;
+    line-height: 66px;
+    color: $decor-color;
+    margin: 5px 0 35px;
+  }
+}
+.main-container{
+  display: flex;
+  max-width: 1180px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  &:before,
+  &:after {
+    display: block;
+    position: absolute;
+    top: 49%;
+  }
+  &:before {
+    left: 30px;
+    content: url("../assets/angle-left.png");
+  }
+  &:after {
+    right: 30px;
+    content: url("../assets/angle-right.png");
+  }
+  &__half{
+    flex-grow: 1;
+    height: 560px;
+    max-width: 590px;
+    min-width: 500px;
+    &:first-of-type{
+      border-right: $border-yellow;
+    }
+  }
+}
+.orange-frame{
+  background: url("../assets/frame_orange.svg") no-repeat;
+  height: 418px;
+  width: 418px;
+  padding: 14px;
+  margin-top: 75px;
+}
+.person{
+  &__foto{
+    width: 388px;
+    height: 388px;
+    border: $border-yellow;
+  }
+  &__name{
+    font-family: $font-family-title;
+    color: ($text-color/0.5);
+    font-size: 36px;
+    margin-top: 84px;
+    &:after{
+      display: block;
+      content: " ";
+      height: 1px;
+      width: 100px;
+      background-color: $decor-color;
+      margin: 28px auto;
+    }
+  }
+  &__specialization{
+    color: ($text-color/0.5);
+    font-size: 24px;
+    font-weight: 400;
+  }
+  &__bio{
+    color: $text-color;
+    max-width: 430px;
+    line-height: 1.8;
+    &:after{
+      display: block;
+      content: " ";
+      height: 4px;
+      width: 50px;
+      background:  linear-gradient(to right, $decor-color 0%, $decor-color 20%, #ffffff 20%, #ffffff 30%, $decor-color 30%, $decor-color 70%, #ffffff 70%, #ffffff 80%,$decor-color 80%, $decor-color 100%);
+      margin: 15px auto;
+    }
+  }
+}
+.person__social{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  content: " ";
+  margin: 25px 0;
+  border-radius: 50%;
+  &:first-of-type{
+    background: url("../assets/facebook.png");
+    &:hover{
+      box-shadow: inset 0 0 15px #3b5998;
+    }
+  }
+  &:nth-of-type(2){
+    background: url("../assets/twitter.png");
+    &:hover{
+      box-shadow: inset 0 0 15px #00acee;
+    }
+  }
+  &:nth-of-type(3){
+    background: url("../assets/google-plus.png");
+    &:hover{
+      box-shadow: inset 0 0 15px #D34836;
+    }
+  }
+  &:last-of-type{
+    background: url("../assets/linked-in.png");
+    &:hover{
+      box-shadow: inset 0 0 15px #0077B5;
+    }
+  }
+  &+&{
+    margin-left: 3px;
+  }
+}
+.view__button{
+  display: block;
+  text-decoration: none;
+  font-family: OpenSans, sans-serif;
+  color: ($text-color/0.5);
+  margin-top: 26px;
+  font-size: 14px;
+  line-height: 24px;
+  width: 120px;
+  height: 24px;
+  border: $border-yellow;
+  &:hover{
+    background-color: $decor-color;
+    color: #fff;
+  }
+}
+.footer-container{
+  margin: 40px 0;
+}
+.footer-bullet{
+  input[type=radio]{
+    display: none;
+  }
+  &__button{
+    display: inline-block;
+    list-style: none;
+    border-radius: 50%;
+    background-color: $decor-color;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    &:hover,
+    &--checked[type="radio"]:checked + label {
+      transform: scale(1.2);
+      border: $border-yellow;
+      background-color: transparent;
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .main-container {
+    &:before,
+    &:after {
+      display: block;
+      position: absolute;
+      top: 23%;
+    }
+    &__half:first-of-type{
+        border-right: none;
+      }
+  }
+}
+
+
